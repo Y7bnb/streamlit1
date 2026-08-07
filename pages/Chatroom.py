@@ -7,11 +7,9 @@ def get_room():
 
 room = get_room()
 
-st.write(
-"""
-Chat room
-"""
-)
+st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
+        link="https://www.youtube.com/watch?v=9PGspaFVpec&list=RD9PGspaFVpec&start_radio=1")
+st.title("Chat room")
 
 if "name" not in st.session_state:
     with st.form("join"):
