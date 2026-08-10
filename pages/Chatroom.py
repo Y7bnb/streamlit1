@@ -34,9 +34,7 @@ st.caption(f"Chatting as {st.session_state.name}")
 @st.fragment(run_every=1)
 def show_messages():
     for m in room["messages"]:
-        with st.chat_message(
-            "user" if m["name"] == st.session_state.name else "assistant"
-        ):
+        with st.chat_message("user" if m["name"] == st.session_state.name else "assistant"):
             st.markdown(m["name"])
 
             if "text" in m:
