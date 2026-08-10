@@ -1,8 +1,13 @@
 import streamlit as st
-import ollama
+from groq import Groq
 import time
 
-MODEL = "qwen2.5:0.5b"
+# when loading the api key from streamlit
+API_KEY = st.secrets["GROQ_API_KEY"] # use this only for streamlit
+
+client = Groq(api_key=API_KEY)
+
+MODEL = "llama-3.1-8b-instant"
 
 st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
         link="https://www.youtube.com/watch?v=9PGspaFVpec&list=RD9PGspaFVpec&start_radio=1")
@@ -37,8 +42,8 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        temp = ollama.chat(model=MODEL, messages=st.session_state.messages)
-        assistant_response = temp["message"]["content"]
+        temp = client.chat.completions.create(model=MODEL, messages=st.session_state.messages)
+        assistant_response = temp.choices[0].message.content
         # Simulate stream of response with milliseconds delay
         for chunk in assistant_response.split():
             full_response += chunk + " "
