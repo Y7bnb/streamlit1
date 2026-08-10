@@ -2,6 +2,13 @@ import streamlit as st
 from groq import Groq
 import time
 
+# #local env file
+# import os
+# from dotenv import load_dotenv
+# load_dotenv()
+# API_KEY = os.getenv("GROQ_API_KEY")
+
+
 # when loading the api key from streamlit
 API_KEY = st.secrets["GROQ_API_KEY"] # use this only for streamlit
 
@@ -35,11 +42,11 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
-    with st.chat_message("user"):
+    with st.chat_message("user", avatar="👨‍💻"):
         st.markdown(prompt)
 
     # Display assistant response in chat message container
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar="🤖"):
         message_placeholder = st.empty()
         full_response = ""
         temp = client.chat.completions.create(model=MODEL, messages=st.session_state.messages)
