@@ -22,11 +22,8 @@ st.title("My AI Chatbot")
 st.markdown(
     """
     Hello! I tried kinda hard on this
-
-    **👇:rainbow[PLEASE] help support me**
     """
 )
-st.link_button("My CodeTorch account", "https://codetorch.net/en/users/Y7bnb", icon="🔥", icon_position="right")
 
 # Initialize chat history
 if "messages" not in st.session_state:

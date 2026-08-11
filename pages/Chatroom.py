@@ -1,5 +1,4 @@
 import threading
-
 import streamlit as st
 
 
@@ -88,3 +87,7 @@ if message:
             )
 
         st.rerun()
+
+if st.button("Delete Message History"):
+    room["messages"] = []
+    st.rerun()
