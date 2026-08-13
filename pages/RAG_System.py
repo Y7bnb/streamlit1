@@ -25,13 +25,14 @@ st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
 
 st.title(":rainbow[File RAG system]")
 
-file_type = st.selectbox("Choose a file type", ["txt", "pdf"])
+file_type = st.selectbox("Choose a file type", ["txt", "pdf", "py"])
 
 if file_type == "txt":
     files = st.file_uploader("Upload a .txt file", type="txt", accept_multiple_files=True)
 elif file_type == "pdf":
     files = st.file_uploader("Upload a .pdf file", type="pdf", accept_multiple_files=True)
-
+elif file_type == "py":
+    files = st.file_uploader("Upload a .py file", type="py", accept_multiple_files=True)
 # if files and st.button("Process File"):
 if files:
     chroma_client = chromadb.Client()
@@ -51,7 +52,7 @@ if files:
     step = chunk_size - overlap
 
     for file in files:
-        if file_type == "txt":
+        if file_type == "txt" or file_type == "py":
             text = file.read().decode("utf-8")
         elif file_type == "pdf":
             reader = PdfReader(file)
