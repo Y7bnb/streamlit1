@@ -17,7 +17,7 @@ if "messages" not in st.session_state:
 #when loading the api key from streamlit secrets
 API_KEY = st.secrets["GROQ_API_KEY"]
 
-client = Groq(api_key=API_KEY)
+groq_client = Groq(api_key=API_KEY)
 MODEL = "llama-3.1-8b-instant"
 
 st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
@@ -32,15 +32,16 @@ if file_type == "txt":
 elif file_type == "pdf":
     files = st.file_uploader("Upload a .pdf file", type="pdf", accept_multiple_files=True)
 
-if files and st.button("Process File"):
-    client = chromadb.Client()
+# if files and st.button("Process File"):
+if files:
+    chroma_client = chromadb.Client()
 
     try:
-        client.delete_collection("documents")
+        chroma_client.delete_collection("documents")
     except Exception:
         pass
 
-    collection = client.create_collection("documents")
+    collection = chroma_client.create_collection("documents")
 
     chunks = []
     tags = []
@@ -76,10 +77,10 @@ if files and st.button("Process File"):
     st.session_state.pop("question", None)
 
     st.write("Chunks added to knowledge base")
-question = st.text_input("Ask a question about the file")
-result_num = st.slider("Choose number of results", min_value=1, max_value=15, value=5)
+result_num = st.slider("Choose number of chunk results", min_value=1, max_value=15, value=5)
+question = st.chat_input("Ask a question about the file")
 
-if st.button("Search"):
+if question:
     st.write("Thinking...")
 
     collection = st.session_state.collection
@@ -93,10 +94,10 @@ if st.button("Search"):
 
     st.session_state.question = question
 
-    for ans in st.session_state.context:
-        st.write(ans)
-
-if st.button("LLM answer"):
+#     for ans in st.session_state.context:
+#         st.write(ans)
+#
+# if st.button("LLM answer"):
     st.write("contacting LLM...")
 
     context = "\n".join(st.session_state.context)
@@ -107,5 +108,5 @@ if st.button("LLM answer"):
         {"role": "user", "content": f"DOCUMENT CONTEXT:\n{context}\n\nQUESTION:\n{question}"}
     ]
 
-    response = client.chat.completions.create(model=MODEL, messages=messages)
+    response = groq_client.chat.completions.create(model=MODEL, messages=messages)
     st.write("LLM Answer:", response.choices[0].message.content)
