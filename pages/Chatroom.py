@@ -77,7 +77,7 @@ if message:
 
         st.rerun()
 
-    if message["files"]:
+    if message.files:
         with room["lock"]:
             room["messages"].append(
                 {
