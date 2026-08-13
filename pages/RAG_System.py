@@ -20,6 +20,9 @@ API_KEY = st.secrets["GROQ_API_KEY"]
 client = Groq(api_key=API_KEY)
 MODEL = "llama-3.1-8b-instant"
 
+st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
+        link="https://www.youtube.com/watch?v=9PGspaFVpec&list=RD9PGspaFVpec&start_radio=1")
+
 st.title(":rainbow[File RAG system]")
 
 file_type = st.selectbox("Choose a file type", ["txt", "pdf"])
@@ -61,7 +64,7 @@ if files and st.button("Process File"):
             chunks.append(text[i:i + chunk_size])
             tags.append(file.name + str(i))
 
-    st.write(tags)
+    # st.write(tags)
     st.write(len(chunks))
 
     collection.add(documents=chunks, ids=tags)

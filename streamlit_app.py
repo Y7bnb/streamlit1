@@ -1,9 +1,11 @@
 import streamlit as st
+
 st.markdown(
     """
     **👇:rainbow[PLEASE] help support me**
     """
 )
+
 st.link_button("My CodeTorch account", "https://codetorch.net/en/users/Y7bnb", icon="🔥", icon_position="right")
 
 st.title(":rainbow[Y7bnb's] 1st app!")
