@@ -66,7 +66,7 @@ if files:
             tags.append(file.name + str(i))
 
     # st.write(tags)
-    st.write(len(chunks))
+    # st.write(len(chunks))
 
     collection.add(documents=chunks, ids=tags)
 
@@ -76,7 +76,7 @@ if files:
     st.session_state.pop("context", None)
     st.session_state.pop("question", None)
 
-    st.write("Chunks added to knowledge base")
+    st.write(f"{len(chunks)} chunks added to knowledge base")
 result_num = st.slider("Choose number of chunk results", min_value=1, max_value=15, value=5)
 question = st.chat_input("Ask a question about the file")
 
@@ -86,7 +86,7 @@ if question:
     collection = st.session_state.collection
     result = collection.query(query_texts=question, n_results=result_num)
 
-    st.write(result["distances"])
+    # st.write(result["distances"])
 
     ids = result["ids"][0]
 
