@@ -49,7 +49,7 @@ def show_messages():
 
 show_messages()
 
-message = st.chat_input("Message", accept_file=True, file_type=["jpg", "jpeg", "png"], accept_audio=True)
+message = st.chat_input("Message", accept_file=True, file_type=["jpg", "jpeg", "png", "gif"], accept_audio=True)
 
 if message:
     if message.text:
