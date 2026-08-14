@@ -20,7 +20,6 @@ st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
         link="https://www.youtube.com/watch?v=9PGspaFVpec&list=RD9PGspaFVpec&start_radio=1")
 
 st.title("My AI Chatbot")
-st.sidebar.title("Chatbot")
 
 st.markdown(
     """
