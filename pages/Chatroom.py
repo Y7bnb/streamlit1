@@ -16,6 +16,7 @@ st.logo(
 )
 
 st.title("Chat room")
+st.sidebar.header("Chat room")
 
 if "name" not in st.session_state:
     with st.form("join"):
