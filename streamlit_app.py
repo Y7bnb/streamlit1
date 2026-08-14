@@ -1,5 +1,8 @@
 import streamlit as st
 
+st.title(":rainbow[Y7bnb's] 1st app!")
+st.sidebar.title("Y7bnb's app")
+
 st.markdown(
     """
     **👇:rainbow[PLEASE] help support me**
@@ -8,7 +11,6 @@ st.markdown(
 
 st.link_button("My CodeTorch account", "https://codetorch.net/en/users/Y7bnb", icon="🔥", icon_position="right")
 
-st.title(":rainbow[Y7bnb's] 1st app!")
 st.page_link("pages/Chatbot.py", label="**:rainbow[ChatBot]**", icon="🤖")
 st.page_link("pages/Chatroom.py", label="**:rainbow[Chatroom]**", icon="💬")
 st.page_link("pages/RAG_System.py", label="**:rainbow[RAG System]**", icon="📝")
