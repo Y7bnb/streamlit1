@@ -1,7 +1,8 @@
-import chromadb
 import streamlit as st
+import chromadb
 from groq import Groq
 from pypdf import PdfReader
+import time
 
 msgtollm = "Give me an answer based on the given information"
 
@@ -33,6 +34,11 @@ elif file_type == "pdf":
     files = st.file_uploader("Upload a .pdf file", type="pdf", accept_multiple_files=True)
 elif file_type == "py":
     files = st.file_uploader("Upload a .py file", type="py", accept_multiple_files=True)
+
+chunk_size = st.sidebar.slider("Chunk Size", min_value=10, max_value=1000, value=300)
+overlap = st.sidebar.slider("Overlap", min_value=10, max_value=1000, value=200)
+result_num = st.sidebar.slider("Choose number of chunk results", min_value=1, max_value=15, value=5)
+
 # if files and st.button("Process File"):
 if files:
     chroma_client = chromadb.Client()
@@ -47,8 +53,6 @@ if files:
     chunks = []
     tags = []
 
-    chunk_size = 300
-    overlap = 200
     step = chunk_size - overlap
 
     for file in files:
@@ -64,9 +68,9 @@ if files:
 
         for i in range(0, len(text), step):
             chunks.append(text[i:i + chunk_size])
-            tags.append(file.name + str(i))
+            tags.append(file.name + str(i/100))
 
-    # st.write(tags)
+    st.write(tags)
     # st.write(len(chunks))
 
     collection.add(documents=chunks, ids=tags)
@@ -78,7 +82,6 @@ if files:
     st.session_state.pop("question", None)
 
     st.write(f"{len(chunks)} chunks added to knowledge base")
-result_num = st.slider("Choose number of chunk results", min_value=1, max_value=15, value=5)
 question = st.chat_input("Ask a question about the file")
 
 if question:
@@ -95,9 +98,13 @@ if question:
 
     st.session_state.question = question
 
-#     for ans in st.session_state.context:
-#         st.write(ans)
-#
+    temp_info = st.empty()
+
+    for ans in st.session_state.context:
+        temp_info.caption(ans)
+        time.sleep(0.25)
+        temp_info.empty()
+
 # if st.button("LLM answer"):
     st.write("contacting LLM...")
 
