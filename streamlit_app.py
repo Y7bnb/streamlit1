@@ -11,9 +11,10 @@ st.markdown(
 
 st.link_button("My CodeTorch account", "https://codetorch.net/en/users/Y7bnb", icon="🔥", icon_position="right")
 
+st.page_link("pages/BG_Remover.py", label="**:rainbow[BG Remover]**", icon="🌇")
 st.page_link("pages/Chatbot.py", label="**:rainbow[ChatBot]**", icon="🤖")
 st.page_link("pages/Chatroom.py", label="**:rainbow[Chatroom]**", icon="💬")
+st.page_link("pages/QR-Code_Generator.py", label="**:rainbow[QR-Code Generator]**", icon="🔲")
 st.page_link("pages/RAG_System.py", label="**:rainbow[RAG System]**", icon="📝")
 st.page_link("pages/Temperature_Convertor.py", label="**Celsius to Fahrenheit Convertor**", icon="🌡️", disabled=True)
 st.page_link("pages/Weather.py", label="**:rainbow[Weather]**", icon="🌦️")
-st.page_link("pages/QR-Code_Generator.py", label="**:rainbow[QR-Code Generator]**", icon="🔲")
