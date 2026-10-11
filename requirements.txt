@@ -6,3 +6,5 @@ python_weather
 asyncio
 qrcode
 rembg
+pillow
+#opencv-python-headless
