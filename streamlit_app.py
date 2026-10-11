@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title(":rainbow[Y7bnb's] 1st app!")
+st.title(":rainbow[Y7bnb's] essentials!")
 st.sidebar.header("Made by :rainbow[Y7bnb]")
 
 st.markdown(
