@@ -7,4 +7,5 @@ asyncio
 qrcode
 rembg
 pillow
-#opencv-python-headless
+opencv-python-headless
+libgl1-mesa-glx
