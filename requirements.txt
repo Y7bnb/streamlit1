@@ -5,5 +5,4 @@ pypdf
 python_weather
 asyncio
 qrcode
-PIL
 rembg
