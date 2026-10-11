@@ -1,16 +1,19 @@
-# This is a sample Python script.
+import streamlit as st
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+st.title(":rainbow[Y7bnb's] 1st app!")
+st.sidebar.header("Made by :rainbow[Y7bnb]")
 
+st.markdown(
+    """
+    **👇:rainbow[PLEASE] help support me**
+    """
+)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+st.link_button("My CodeTorch account", "https://codetorch.net/en/users/Y7bnb", icon="🔥", icon_position="right")
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+st.page_link("pages/Chatbot.py", label="**:rainbow[ChatBot]**", icon="🤖")
+st.page_link("pages/Chatroom.py", label="**:rainbow[Chatroom]**", icon="💬")
+st.page_link("pages/RAG_System.py", label="**:rainbow[RAG System]**", icon="📝")
+st.page_link("pages/Temperature_Convertor.py", label="**Celsius to Fahrenheit Convertor**", icon="🌡️", disabled=True)
+st.page_link("pages/Weather.py", label="**:rainbow[Weather]**", icon="🌦️")
+st.page_link("pages/QR-Code_Generator.py", label="**:rainbow[QR-Code Generator]**", icon="🔲")

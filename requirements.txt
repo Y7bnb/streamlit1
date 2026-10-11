@@ -1,0 +1,7 @@
+streamlit
+groq
+chromadb
+pypdf
+python_weather
+asyncio
+segno
