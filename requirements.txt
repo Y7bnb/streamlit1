@@ -6,6 +6,3 @@ python_weather
 asyncio
 qrcode
 rembg
-pillow
-opencv-python-headless
-libgl1-mesa-glx
