@@ -16,7 +16,7 @@ async def fetch_weather(city: str, units: str):
 
 
 # --- Streamlit UI Setup ---
-st.set_page_config(page_title="Weather App", page_icon="🌤️", layout="centered")
+st.set_page_config(layout="wide", page_title="Weather")
 
 st.title("🌤️ Real-Time Weather App")
 
