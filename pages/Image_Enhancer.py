@@ -12,9 +12,9 @@ st.sidebar.header("Enhancement Settings")
 # Sliders map to Pillow's enhancement factor scale (1.0 is default)
 def reset_sliders():
     st.session_state.brightness = 1.0
-    st.session_state.contrast = 1.0
-    st.session_state.color = 1.0
-    st.session_state.sharpness = 1.0
+    st.session_state.contrast = 1.2
+    st.session_state.color = 1.3
+    st.session_state.sharpness = 1.5
 
 brightness_factor = st.sidebar.slider("Brightness", min_value=0.0, max_value=3.0, value=1.0, step=0.1, key="brightness")
 contrast_factor = st.sidebar.slider("Contrast", min_value=0.0, max_value=3.0, value=1.0, step=0.1, key="contrast")
