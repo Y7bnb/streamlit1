@@ -14,7 +14,7 @@ API_KEY = st.secrets["GROQ_API_KEY"] # use this only for streamlit
 
 client = Groq(api_key=API_KEY)
 
-MODEL = "llama-3.1-8b-instant"
+MODEL = "qwen/qwen3.8-27b"
 
 st.logo(image="https://i.ytimg.com/vi/XAIkWgrC6o0/sddefault.jpg", size="large",
         link="https://www.youtube.com/watch?v=9PGspaFVpec&list=RD9PGspaFVpec&start_radio=1")
