@@ -6,3 +6,4 @@ python_weather
 asyncio
 qrcode
 rembg
+pyttsx3
