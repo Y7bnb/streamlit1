@@ -7,3 +7,4 @@ asyncio
 qrcode
 rembg
 pyttsx3
+eSpeak
