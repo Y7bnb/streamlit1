@@ -15,7 +15,7 @@ pages = {
         st.Page("pages/Temperature_Convertor.py", title="**Celsius to Fahrenheit Convertor**", icon="🌡️", visibility="hidden"),
         st.Page("pages/Weather.py", title="**:rainbow[Weather]**", icon="🌦️"),
         st.Page("pages/Image_Enhancer.py", title="**:rainbow[Image Enhancer]**", icon="🌇"),
-        st.Page("pages/Text_to_Speech.py", title="**:rainbow[Text to Speech]**", icon="💬"),
+        st.Page("pages/Text_to_Speech.py", title="**:rainbow[Text to Speech]**", icon="💬", visibility="hidden"),
     ],
 }
 

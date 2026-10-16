@@ -1,7 +1,5 @@
 import streamlit as st
-
 import sys
-
 import pyttsx3
 
 tts = pyttsx3.init()  # Initialize the TTS engine.
