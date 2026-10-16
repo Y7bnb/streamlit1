@@ -6,4 +6,5 @@ python_weather
 asyncio
 qrcode
 rembg
-#pyttsx3
+pyttsx3
+espeak
