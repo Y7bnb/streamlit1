@@ -10,6 +10,12 @@ st.write("Upload an image and use the sidebar sliders to tune its properties.")
 st.sidebar.header("Enhancement Settings")
 
 # Sliders map to Pillow's enhancement factor scale (1.0 is default)
+def enhance():
+    st.session_state.brightness = 1.0
+    st.session_state.contrast = 1.2
+    st.session_state.color = 1.2
+    st.session_state.sharpness = 1.5
+
 def reset_sliders():
     st.session_state.brightness = 1.0
     st.session_state.contrast = 1.0
@@ -21,7 +27,11 @@ contrast_factor = st.sidebar.slider("Contrast", min_value=0.0, max_value=3.0, va
 color_factor = st.sidebar.slider("Color / Saturation", min_value=0.0, max_value=3.0, value=1.2, step=0.1, key="color")
 sharpness_factor = st.sidebar.slider("Sharpness", min_value=0.0, max_value=3.0, value=1.5, step=0.1, key="sharpness")
 
-st.sidebar.button("Reset", on_click=reset_sliders)
+col1, col2 = st.sidebar.columns(2, gap="medium")
+with col1:
+    st.button("Enhance", on_click=enhance)
+with col2:
+    st.button("Reset", on_click=reset_sliders)
 
 # --- IMAGE UPLOADER ---
 uploaded_file = st.file_uploader("Choose an image file...", type=["jpg", "jpeg", "png"])
