@@ -1,16 +1,19 @@
 import streamlit as st
 
 pages = {
-    "Web": [
+    "Menu": [
         st.Page("pages/Home.py", title="**:rainbow[Home]**", icon="🏠", default=True)
     ],
     "Artificial Intelligence": [
         st.Page("pages/Chatbot.py", title="**:rainbow[ChatBot]**", icon="🤖"),
         st.Page("pages/RAG_System.py", title="**:rainbow[RAG System]**", icon="📝"),
     ],
+    "Chats": [
+        st.Page("pages/Chatroom.py", title="**:rainbow[Chatroom]**", icon="💬"),
+        st.Page("pages/Voice_Chat.py", title="**:rainbow[Voice Chat]**", icon="🎙️")
+    ],
     "Utilities": [
         st.Page("pages/BG_Remover.py", title="**:rainbow[BG Remover]**", icon="🌇", visibility="hidden"),
-        st.Page("pages/Chatroom.py", title="**:rainbow[Chatroom]**", icon="💬"),
         st.Page("pages/QR-Code_Generator.py", title="**:rainbow[QR-Code Generator]**", icon="🔲"),
         st.Page("pages/Temperature_Convertor.py", title="**Celsius to Fahrenheit Convertor**", icon="🌡️", visibility="hidden"),
         st.Page("pages/Weather.py", title="**:rainbow[Weather]**", icon="🌦️"),

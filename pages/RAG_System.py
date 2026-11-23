@@ -28,9 +28,11 @@ st.set_page_config(layout="wide", page_title="RAG System")
 st.title(":rainbow[File RAG system]")
 st.sidebar.header("RAG system")
 
-file_type = st.selectbox("Choose a file type", ["txt", "pdf", "py"])
+file_type = st.selectbox("Choose a file type", ["paste text", "txt", "pdf", "py"])
 
-if file_type == "txt":
+if file_type == "paste text":
+    files = st.text_area("Paste text here")
+elif file_type == "txt":
     files = st.file_uploader("Upload a .txt file", type="txt", accept_multiple_files=True)
 elif file_type == "pdf":
     files = st.file_uploader("Upload a .pdf file", type="pdf", accept_multiple_files=True)
@@ -58,7 +60,9 @@ if files:
     step = chunk_size - overlap
 
     for file in files:
-        if file_type == "txt" or file_type == "py":
+        if file_type == "paste text":
+            text = file.read()
+        elif file_type == "txt" or file_type == "py":
             text = file.read().decode("utf-8")
         elif file_type == "pdf":
             reader = PdfReader(file)
